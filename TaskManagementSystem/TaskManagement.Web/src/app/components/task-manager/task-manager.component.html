@@ -1,0 +1,123 @@
+<div class="container-fluid py-4">
+    <!-- HEADER -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="mb-0">Task Management</h2>
+
+        <div class="d-flex align-items-center gap-3">
+            <span class="text-muted">Welcome, {{ username }}</span>
+
+            <button class="btn btn-outline-danger btn-sm" (click)="logout()">Logout</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- LEFT SIDE - TASK LIST -->
+        <div class="col-lg-7 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 class="mb-0">Tasks</h5>
+
+                        <input type="text" class="form-control w-50" placeholder="Search Tasks..." [(ngModel)]="searchTerm" (ngModelChange)="filterTasks()" />
+                    </div>
+
+                    <!-- TASKS -->
+                    <div *ngIf="filteredTasks.length; else noTasks">
+                        <div *ngFor="let task of filteredTasks" class="card mb-3" [class.border-success]="task.statusName === 'Completed'">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h6 class="mb-0">{{ task.title }}</h6>
+
+                                    <span class="badge" [ngClass]="getStatusClass(task.statusName)">{{ task.statusName }}</span>
+                                </div>
+
+                                <p *ngIf="task.description" class="text-muted small mt-2 mb-2">{{ task.description }}</p>
+
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <!-- <small class="text-muted">Created by: {{ task.createdByUsername }}</small> -->
+                                    <small class="text-muted"></small>
+
+                                    <div class="d-flex gap-2">
+                                        <button class="btn btn-sm btn-outline-primary" (click)="editTask(task)">Edit</button>
+
+                                        <button class="btn btn-sm btn-outline-danger" (click)="deleteTask(task.id)">Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- EMPTY STATE -->
+                    <ng-template #noTasks>
+                        <div class="alert alert-info text-center mb-0">No tasks found matching your search.</div>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT SIDE - FORM -->
+        <div class="col-lg-5">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="mb-3">{{ editingTask ? 'Edit Task' : 'Add New Task' }}</h5>
+
+                    <form (ngSubmit)="saveTask(taskForm)" #taskForm="ngForm">
+                        <!-- TITLE -->
+                        <div class="mb-3">
+                            <label class="form-label">Title *</label>
+
+                            <input type="text"
+                                    class="form-control"
+                                    [(ngModel)]="formTitle"
+                                    name="title"
+                                    required
+                                    maxlength="200"
+                                    #titleInput="ngModel"
+                                    placeholder="Enter task title"
+                                    [class.is-invalid]="titleInput.invalid && titleInput.touched" />
+
+                            <div class="invalid-feedback">Title is required (max 200 chars)</div>
+                        </div>
+
+                        <!-- DESCRIPTION -->
+                        <div class="mb-3">
+                            <label class="form-label">Description</label>
+
+                            <textarea class="form-control"
+                                        rows="4"
+                                        [(ngModel)]="formDescription"
+                                        name="description"
+                                        placeholder="Enter task description">
+                            </textarea>
+                        </div>
+
+                        <!-- STATUS -->
+                        <div class="mb-3">
+                            <label class="form-label">Status *</label>
+
+                            <select class="form-select"
+                                    [(ngModel)]="formStatusId"
+                                    name="statusId"
+                                    required
+                                    #statusInput="ngModel"
+                                    [class.is-invalid]="statusInput.invalid && statusInput.touched">
+                                <option value="0"> - SELECT STATUS - </option>
+                                <option *ngFor="let status of statuses" [value]="status.id">{{ status.name }}</option>
+                            </select>
+
+                            <div class="invalid-feedback">Status is required</div>
+                        </div>
+
+                        <!-- ACTION BUTTONS -->
+                        <div class="d-flex justify-content-between">
+
+                            <button type="button" class="btn btn-secondary" (click)="resetForm(); taskForm.resetForm()">Cancel</button>
+
+                            <button type="submit" class="btn btn-primary" [disabled]="taskForm.invalid || isLoading">{{ isLoading ? 'Saving...' : (editingTask ? 'Update' : 'Add Task') }}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

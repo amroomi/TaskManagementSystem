@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37012.4
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagement.API", "TaskManagement.API\TaskManagement.API.csproj", "{A21F3E93-3CAB-49A9-B873-155E1B8A9F74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagement.Application", "TaskManagement.Application\TaskManagement.Application.csproj", "{D6AE1560-DCE8-466F-BE64-9F3B6FA66015}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagement.Domain", "TaskManagement.Domain\TaskManagement.Domain.csproj", "{FC2EE142-9D04-4CF2-828E-9301FB260C86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagement.Infrastructure", "TaskManagement.Infrastructure\TaskManagement.Infrastructure.csproj", "{7324C3C3-DA98-4ADF-9D90-397F0EF1DD38}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "TaskManagement.Web", "TaskManagement.Web\", "{09291522-05E8-D146-8FC6-526B1C63BFA3}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_53460"
+		Debug.AspNetCompiler.PhysicalPath = "TaskManagement.Web\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_53460\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_53460"
+		Release.AspNetCompiler.PhysicalPath = "TaskManagement.Web\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_53460\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "53460"
+		SlnRelativePath = "TaskManagement.Web\"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A21F3E93-3CAB-49A9-B873-155E1B8A9F74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A21F3E93-3CAB-49A9-B873-155E1B8A9F74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A21F3E93-3CAB-49A9-B873-155E1B8A9F74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A21F3E93-3CAB-49A9-B873-155E1B8A9F74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6AE1560-DCE8-466F-BE64-9F3B6FA66015}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6AE1560-DCE8-466F-BE64-9F3B6FA66015}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6AE1560-DCE8-466F-BE64-9F3B6FA66015}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6AE1560-DCE8-466F-BE64-9F3B6FA66015}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC2EE142-9D04-4CF2-828E-9301FB260C86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC2EE142-9D04-4CF2-828E-9301FB260C86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC2EE142-9D04-4CF2-828E-9301FB260C86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC2EE142-9D04-4CF2-828E-9301FB260C86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7324C3C3-DA98-4ADF-9D90-397F0EF1DD38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7324C3C3-DA98-4ADF-9D90-397F0EF1DD38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7324C3C3-DA98-4ADF-9D90-397F0EF1DD38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7324C3C3-DA98-4ADF-9D90-397F0EF1DD38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09291522-05E8-D146-8FC6-526B1C63BFA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09291522-05E8-D146-8FC6-526B1C63BFA3}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{09291522-05E8-D146-8FC6-526B1C63BFA3}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A701630D-35D9-4697-A7B0-33EF10E348BC}
+	EndGlobalSection
+EndGlobal

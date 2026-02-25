@@ -1,0 +1,13 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/TaskManagementSystem/.vs
+/TaskManagementSystem/TaskManagement.API/obj
+/TaskManagementSystem/TaskManagement.API/bin
+/TaskManagementSystem/TaskManagement.Application/obj
+/TaskManagementSystem/TaskManagement.Application/bin
+/TaskManagementSystem/TaskManagement.Domain/obj
+/TaskManagementSystem/TaskManagement.Domain/bin
+/TaskManagementSystem/TaskManagement.Infrastructure/obj
+/TaskManagementSystem/TaskManagement.Infrastructure/bin

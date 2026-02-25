@@ -1,0 +1,122 @@
+<!-- <div class="login-container">
+    <div class="login-card">
+        <h2>Task Management</h2>
+
+        <p>Enter credentials to continue</p>
+
+        <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+            <div class="form-group">
+                <label>Username</label>
+
+                <input type="text" 
+                        [(ngModel)]="username" 
+                        name="username" 
+                        required
+                        #usernameInput="ngModel">
+
+                <div *ngIf="usernameInput.invalid && usernameInput.touched" class="error">
+                    Username is required
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Password</label>
+
+                <input type="password" 
+                        [(ngModel)]="password" 
+                        name="password" 
+                        required
+                        #passwordInput="ngModel">
+
+                <div *ngIf="passwordInput.invalid && passwordInput.touched" class="error">
+                    Password is required
+                </div>
+            </div>
+            
+            <button type="submit" [disabled]="!loginForm.valid">Login</button>
+        </form>
+
+        <div *ngIf="errorMessage" class="error-message">
+            {{ errorMessage }}
+        </div>
+    </div>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+<div class="container vh-100 d-flex align-items-center justify-content-center">
+  <div class="card shadow p-4" style="width: 100%; max-width: 400px;">
+    
+    <div class="card-body">
+      <h3 class="text-center mb-2">Task Management</h3>
+      <p class="text-center text-muted mb-4">
+        Enter credentials to continue
+      </p>
+
+      <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+
+        <!-- Username -->
+        <div class="mb-3">
+          <label class="form-label">Username</label>
+
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="username"
+            name="username"
+            required
+            #usernameInput="ngModel"
+            [class.is-invalid]="usernameInput.invalid && usernameInput.touched"
+          />
+
+          <div class="invalid-feedback">
+            Username is required
+          </div>
+        </div>
+
+        <!-- Password -->
+        <div class="mb-3">
+          <label class="form-label">Password</label>
+
+          <input
+            type="password"
+            class="form-control"
+            [(ngModel)]="password"
+            name="password"
+            required
+            #passwordInput="ngModel"
+            [class.is-invalid]="passwordInput.invalid && passwordInput.touched"
+          />
+
+          <div class="invalid-feedback">
+            Password is required
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <button
+          type="submit"
+          class="btn btn-primary w-100"
+          [disabled]="!loginForm.valid"
+        >
+          Login
+        </button>
+
+      </form>
+
+      <!-- Error Message -->
+      <div *ngIf="errorMessage" class="alert alert-danger mt-3 text-center">
+        {{ errorMessage }}
+      </div>
+
+    </div>
+  </div>
+</div>
