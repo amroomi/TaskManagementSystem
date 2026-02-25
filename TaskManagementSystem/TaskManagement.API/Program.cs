@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using Serilog;
+using TaskManagement.API.Middleware;
 using TaskManagement.Application.Common;
 using TaskManagement.Infrastructure.DependencyInjection;
 using TaskManagement.Infrastructure.Persistence;
@@ -49,7 +51,13 @@ builder.Services.AddCors(options =>
               .AllowCredentials());
 });
 
+builder.Host.UseSerilog((ctx, lc) => lc
+    .WriteTo.Console()
+    .WriteTo.File("logs/app-.txt", rollingInterval: RollingInterval.Day));
+
 var app = builder.Build();
+
+app.UseMiddleware<ExceptionMiddleware>();
 
 if (app.Environment.IsDevelopment())
 {
@@ -62,6 +70,7 @@ app.UseHttpsRedirection();
 app.UseCors("AllowAngular");
 
 app.UseMiddleware<TaskManagement.API.Middleware.BasicAuthMiddleware>();
+app.UseMiddleware<TaskManagement.API.Middleware.ExceptionMiddleware>();
 
 app.UseAuthorization();
 app.MapControllers();

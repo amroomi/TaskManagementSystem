@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using TaskManagement.Application.Common.Exceptions;
 using TaskManagement.Application.Common.Interfaces;
 
 namespace TaskManagement.Application.Features.Tasks.Commands.DeleteTask
@@ -15,7 +16,7 @@ namespace TaskManagement.Application.Features.Tasks.Commands.DeleteTask
         public async Task<bool> Handle(DeleteTaskCommand request, CancellationToken cancellationToken)
         {
             if (request.Id <= 0)
-                throw new ArgumentException("Invalid task ID.", nameof(request.Id));
+                throw new ValidationException("Invalid task ID.");
 
             return await _taskRepository.DeleteAsync(request.Id, request.UserId, cancellationToken);
         }

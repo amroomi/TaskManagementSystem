@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using TaskManagement.Application.Common.Exceptions;
 using TaskManagement.Application.Common.Interfaces;
 
 namespace TaskManagement.Application.Features.Tasks.Commands.UpdateTask
@@ -15,10 +16,10 @@ namespace TaskManagement.Application.Features.Tasks.Commands.UpdateTask
         public async Task<bool> Handle(UpdateTaskCommand request, CancellationToken cancellationToken)
         {
             if (request.Id <= 0)
-                throw new ArgumentException("Invalid task ID.", nameof(request.Id));
+                throw new ValidationException("Invalid task ID.");
 
             if (string.IsNullOrWhiteSpace(request.Title))
-                throw new ArgumentException("Title is required.", nameof(request.Title));
+                throw new ValidationException("Title is required.");
 
             return await _taskRepository.UpdateAsync(new()
             {

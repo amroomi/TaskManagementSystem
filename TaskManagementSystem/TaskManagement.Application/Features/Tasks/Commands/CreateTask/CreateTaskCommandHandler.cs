@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using TaskManagement.Application.Common.Exceptions;
 using TaskManagement.Application.Common.Interfaces;
 using TaskManagement.Domain.Models;
 
@@ -16,7 +17,7 @@ namespace TaskManagement.Application.Features.Tasks.Commands.CreateTask
         public async Task<int> Handle(CreateTaskCommand request, CancellationToken cancellationToken)
         {
             if (string.IsNullOrWhiteSpace(request.Title))
-                throw new ArgumentException("Title is required.", nameof(request.Title));
+                throw new ValidationException("Title is required.");
 
             var task = new TaskModel
             {

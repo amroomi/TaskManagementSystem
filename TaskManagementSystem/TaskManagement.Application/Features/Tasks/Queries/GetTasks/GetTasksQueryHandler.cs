@@ -17,6 +17,8 @@ namespace TaskManagement.Application.Features.Tasks.Queries.GetTasks
         {
             var tasks = await _taskRepository.GetAllAsync(cancellationToken);
 
+            //throw new Exception("Exception");
+
             return tasks.Select(t => new TaskDto
             {
                 Id = t.Id,
