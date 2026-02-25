@@ -34,7 +34,7 @@ export class TaskManagerComponent implements OnInit, OnDestroy {
     formStatusId = 0;
 
     private destroy$ = new Subject<void>();
-    username = 'Admin';
+    username = '';
 
     constructor(
         private taskService: TaskService,

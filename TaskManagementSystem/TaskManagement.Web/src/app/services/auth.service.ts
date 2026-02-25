@@ -7,7 +7,7 @@ import { Environment } from '../environments/environment';
     providedIn: 'root'
 })
 export class AuthService {
-  private readonly loginUrl = `${Environment.apiUrl}/auth/validate`;  // ✅ lowercase + correct case
+  private readonly loginUrl = `${Environment.apiUrl}/auth/validate`;
 
   private authTokenSubject = new BehaviorSubject<string>('');
   public isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
@@ -22,16 +22,15 @@ export class AuthService {
   }
 
   login(username: string, password: string): Observable<boolean> {
-    const requestBody = { username, password };  // ✅ Send credentials in body
+    const requestBody = { username, password };
     
-    // ✅ POST request with JSON body (backend expects this)
     return this.http.post<{ success: boolean; token: string; userId: number; username: string }>(
       this.loginUrl, 
       requestBody
     ).pipe(
       map(response => {
         if (response.success && response.token) {
-          localStorage.setItem('authToken', response.token);  // ✅ Store full "Basic ..." token
+          localStorage.setItem('authToken', response.token);
           this.authTokenSubject.next(response.token);
           this.isAuthenticatedSubject.next(true);
           return true;
@@ -53,7 +52,7 @@ export class AuthService {
   }
 
   getAuthHeader(): string {
-    return this.authTokenSubject.value;  // ✅ Returns stored "Basic ..." token
+    return this.authTokenSubject.value;
   }
 
   isLoggedIn(): boolean {
