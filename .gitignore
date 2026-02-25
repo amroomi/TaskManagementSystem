@@ -11,3 +11,8 @@
 /TaskManagementSystem/TaskManagement.Domain/bin
 /TaskManagementSystem/TaskManagement.Infrastructure/obj
 /TaskManagementSystem/TaskManagement.Infrastructure/bin
+/TaskManagementSystem/TaskManagement.Web/.angular
+/TaskManagementSystem/TaskManagement.Web/.git
+/TaskManagementSystem/TaskManagement.Web/.vs
+/TaskManagementSystem/TaskManagement.Web/.vscode
+/TaskManagementSystem/TaskManagement.Web/node_modules
